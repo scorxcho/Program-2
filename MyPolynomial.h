@@ -1,6 +1,10 @@
 #include<vector>
 #include<string>
 #include<ostream>
+#include<sstream>
+#include<cctype>
+#include<iostream>
+#include<cstdlib>
 
 using namespace std;
 
@@ -16,7 +20,9 @@ public:
     MyPolynomial operator*(const MyPolynomial& s1);
     float operator()(float k);
 private:
-    
+    vector<float> polyVector;
+    friend ostream& operator<< (ostream& os, const MyPolynomial & s1);
+
 };
 
 ostream& operator<< (ostream& os, const MyPolynomial & s1);
