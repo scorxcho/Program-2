@@ -44,4 +44,5 @@ float MyPolynomial::operator()(float k){
 
 ostream& operator<< (ostream& os, const MyPolynomial & s1){
 
+    return os;
 }
