@@ -7,10 +7,9 @@ int main(){
     MyPolynomial test1("1 3 10 2");
     MyPolynomial test2("20 100 34.5 310.6");
 
-    MyPolynomial sum;
-    sum = test1 * 4;
+    float test = test1(4.0);
 
-    cout << sum << endl;
+    cout << test << endl;
 
     return 0;
 }

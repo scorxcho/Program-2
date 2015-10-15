@@ -112,6 +112,13 @@ MyPolynomial MyPolynomial::operator*(float k){
 
 MyPolynomial MyPolynomial::operator<(int k){
     MyPolynomial product;
+    vector<float> temp(k + this->polyVector.size(), 0.0);
+    product.polyVector = temp;
+
+    for(int i = 0; i < product.polyVector.size() - k; i++){
+        product.polyVector[k+i] = this->polyVector[i];
+    }
+
     return product;
 }
 
@@ -121,12 +128,29 @@ MyPolynomial MyPolynomial::operator*(const MyPolynomial& s1){
 }
 
 float MyPolynomial::operator()(float k){
-    return 0.0;
+    float answer;
+    answer = polyVector[polyVector.size() - 1];
+    for(int i = this->polyVector.size() - 1; i > 0; i--){
+        answer *= k;
+        answer += polyVector[i - 1];
+    }
+
+    return answer;
 }
 
 ostream& operator<< (ostream& os, const MyPolynomial & s1){
     for(int i = 0; i < s1.polyVector.size(); i++){
-        os << s1.polyVector[i] << " ";
+        if(s1.polyVector[i] != 0.0){
+            if(i == 0){
+                os << s1.polyVector[i] << i << " ";
+            }
+            else if(i == 1){
+                os << s1.polyVector[i] << "x" << " ";
+            }
+            else{
+                os << s1.polyVector[i] << "x^" << i << " ";
+            }
+        }
     }
     return os;
 }
