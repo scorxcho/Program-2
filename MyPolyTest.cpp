@@ -4,6 +4,7 @@
 using namespace std;
 
 int main(){
-    
+    MyPolynomial test;
+
     return 0;
 }

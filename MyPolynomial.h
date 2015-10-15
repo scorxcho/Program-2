@@ -16,6 +16,7 @@ public:
     MyPolynomial operator*(const MyPolynomial& s1);
     float operator()(float k);
 private:
+    
 };
 
 ostream& operator<< (ostream& os, const MyPolynomial & s1);
