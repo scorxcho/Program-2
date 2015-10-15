@@ -124,6 +124,33 @@ MyPolynomial MyPolynomial::operator<(int k){
 
 MyPolynomial MyPolynomial::operator*(const MyPolynomial& s1){
     MyPolynomial product;
+
+    vector<float> temp(polyVector.size() / 2, 0.0);
+    MyPolynomial A1;
+    MyPolynomial A2;
+    MyPolynomial B1;
+    MyPolynomial B2;
+
+    A1.polyVector = temp;
+    A2.polyVector = temp;
+    B1.polyVector = temp;
+    B2.polyVector = temp;
+
+    cout << this->polyVector.size() / 2 << endl;
+    for(int i = 0; i < this->polyVector.size() / 2; i++){
+        A1.polyVector[i] = this->polyVector[i];
+        B1.polyVector[i] = s1.polyVector[i];
+    }
+    for(int i = (this->polyVector.size() / 2)+1; i < this->polyVector.size(); i++){
+        A2.polyVector[i] = this->polyVector[i];
+        B2.polyVector[i] = s1.polyVector[i];
+    }
+
+    cout << A1 << endl;
+    cout << B1 << endl;
+    cout << A2 << endl;
+    cout << B2 << endl;
+
     return product;
 }
 
